@@ -1,0 +1,95 @@
+---
+title: "Course 9 Data Projects Final Presentation: Shiny Application"
+author: "John Basbagill"
+date: "April 29, 2017"
+output: ioslides_presentation
+runtime: shiny
+---
+
+## Title Slide
+
+This is the final presentation for Course 9 Data Products
+
+## Presentation Topic
+
+The presentation is an interactive shiny application.  
+
+## Data
+
+Data comes from the 'rocks' dataset included in the standard R datasets. The data are measurements on petroleum rock samples: measurements on 48 rock samples from a petroleum reservoir. Twelve core samples from petroleum reservoirs were sampled by 4 cross-sections. Each core sample was measured for permeability, and each cross-section has total area of pores, total perimeter of pores, and shape. 
+
+## Output
+
+Two linear models were created: 1) area as a predictor for permeability, 2) perimeter as a predictor for permeability. A regression line was calculated for model 1.
+
+The interactive plot plots area versus permeability. The plot has two slider inputs: one for controlling area and perimeter and a second for controlling just perimeter. The plot plots area vs. permeability. However by moving the second slider, a user can effectively plot a third variable (perimeter). 
+
+The output also shows the numerical value for permeability for both models. 
+
+The user can hide the regression line. A submit must be pressed before any input changes are registered.
+
+## Plot
+
+```{r, echo = FALSE}
+library(shiny)
+shinyApp(
+ui = fluidPage(
+  titlePanel("Predict Permeability of Rock Samples from Pore Area"),
+  sidebarLayout(
+    sidebarPanel(
+      sliderInput("sliderarea", "What is the area of the pore space (in pixels out of 256x256)?", 
+                  1000, 13000, value = 5000),
+      sliderInput("sliderperimeter", "What is the total perimeter of the pores (in pixels)?", 
+                 0, 5000, value = 3000),
+      checkboxInput("showModel1", "Show/Hide Model 1", value = TRUE),
+      submitButton("Submit")
+    ),
+    mainPanel(
+      plotOutput("plot1"),
+      h3("Predicted Permeability from Model 1 (Area as Predictor):"),
+      textOutput("pred1"),
+      h3("Predicted Permeability from Model 2:(Perimeter as Predictor)"),
+      textOutput("pred2")
+    )
+  )
+),
+server = function(input, output) {
+  model1 <- lm(perm ~ area, data = rock)
+  model2 <- lm(perm ~ peri, data = rock)
+  
+  model1pred <- reactive({
+    areaInput <- input$sliderarea
+    predict(model1, newdata = data.frame(area = areaInput))
+  })
+  
+  model2pred <- reactive({ 
+    periInput <- input$sliderperimeter
+    predict(model2, newdata = data.frame(peri = periInput))
+  })
+  
+  output$plot1 <- renderPlot({
+    areaInput <- input$sliderarea
+    periInput <- input$sliderperimeter
+    
+  plot(rock$area, rock$perm, xlab = "Area of the pore space (in pixels)", 
+    ylab = "Permeability", bty = "n", pch = 16,
+    xlim = c(1000, 13000), ylim = c(0, 1400))
+    
+    if(input$showModel1){
+      abline(model1, col = "red", lwd = 2)
+    }
+    
+    points(areaInput, model1pred(), col = "red", pch = 16, cex = 2)
+    points(areaInput, model2pred(), col = "blue", pch = 16, cex = 2)
+  
+  output$pred1 <- renderText({
+    model1pred()
+  })
+  output$pred2 <- renderText({
+    model2pred()
+  })
+  })
+}
+)
+```
+
