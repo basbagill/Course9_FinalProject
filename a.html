@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html class=""><head>
+<!-- base href="https://basbagill.shinyapps.io/Course9_Shiny_Application/_w_1274e217/app45f02a9cbdbf81beca5a8f63aeb878a0/_w_1274e217/" -->
+    <script type="text/javascript">
+(function() {
+  // http://stackoverflow.com/questions/10964966/detect-ie-version-in-javascript
+  function isIE () {
+    var myNav = navigator.userAgent.toLowerCase();
+    return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+  }
+
+  if (isIE() === 8 || isIE() === 9){
+    // Set an absolute base href.
+    baseURL = document.URL;
+    baseURL = baseURL.substring(0, baseURL.lastIndexOf('/'));
+    document.getElementsByTagName('base')[0].setAttribute('href', baseURL + '/_w_1274e217/');
+  }
+})();
+</script>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  <script type="application/shiny-singletons"></script>  <script type="application/html-dependencies">json2[2014.02.04];jquery[1.12.4];shiny[1.0.1];ionrangeslider[2.1.6];strftime[0.9.2];bootstrap[3.3.7]</script><script src="a_data/json2-min.js"></script>
+<script src="a_data/jquery.js"></script>
+<link href="a_data/shiny.css" rel="stylesheet">
+<script src="a_data/shiny.js"></script>
+<link href="a_data/ion.css" rel="stylesheet">
+<link href="a_data/ion_002.css" rel="stylesheet">
+<script src="a_data/ion.js"></script>
+<script src="a_data/strftime-min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="a_data/bootstrap.css" rel="stylesheet">
+<script src="a_data/bootstrap.js"></script>
+<script src="a_data/html5shiv.js"></script>
+<script src="a_data/respond.js"></script>  <title>Predict Permeability of Rock Samples from Pore Area</title>
+
+<script src="a_data/sockjs-0.js"></script>
+<script src="a_data/shiny-server-client.js"></script>
+<script>preShinyInit({reconnect:false,reconnectTimeout:0,disableProtocols:[],transportDebugging:false,token:true,workerId:true,subappTag:true,extendSession:true,fixupInternalLinks:true});</script>
+<link rel="stylesheet" type="text/css" href="a_data/rstudio-connect.css">
+
+</head>
+
+<body>
+  <div class="container-fluid">
+    <h2>Predict Permeability of Rock Samples from Pore Area</h2>
+    <div class="row">
+      <div class="col-sm-4">
+        <form class="well">
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="sliderarea">What is the area of the pore space (in pixels out of 256x256)?</label>
+            <span class="irs js-irs-0 irs-with-grid"><span class="irs"><span class="irs-line" tabindex="-1"><span class="irs-line-left"></span><span class="irs-line-mid"></span><span class="irs-line-right"></span></span><span class="irs-min">1,000</span><span class="irs-max">13,000</span><span class="irs-from" style="visibility: hidden;">0</span><span class="irs-to" style="visibility: hidden;">0</span><span class="irs-single">0</span></span><span class="irs-grid"><span class="irs-grid-pol" style="left: 0%"></span><span class="irs-grid-text js-grid-text-0" style="left: 0%">1,000</span><span class="irs-grid-pol small" style="left: 6.666666666666666%"></span><span class="irs-grid-pol small" style="left: 3.333333333333333%"></span><span class="irs-grid-pol" style="left: 10%"></span><span class="irs-grid-text js-grid-text-1" style="left: 10%; visibility: hidden;">2,200</span><span class="irs-grid-pol small" style="left: 16.666666666666668%"></span><span class="irs-grid-pol small" style="left: 13.333333333333332%"></span><span class="irs-grid-pol" style="left: 20%"></span><span class="irs-grid-text js-grid-text-2" style="left: 20%; visibility: hidden;">3,400</span><span class="irs-grid-pol small" style="left: 26.666666666666668%"></span><span class="irs-grid-pol small" style="left: 23.333333333333332%"></span><span class="irs-grid-pol" style="left: 30%"></span><span class="irs-grid-text js-grid-text-3" style="left: 30%; visibility: hidden;">4,600</span><span class="irs-grid-pol small" style="left: 36.666666666666664%"></span><span class="irs-grid-pol small" style="left: 33.333333333333336%"></span><span class="irs-grid-pol" style="left: 40%"></span><span class="irs-grid-text js-grid-text-4" style="left: 40%">5,800</span><span class="irs-grid-pol small" style="left: 46.666666666666664%"></span><span class="irs-grid-pol small" style="left: 43.333333333333336%"></span><span class="irs-grid-pol" style="left: 50%"></span><span class="irs-grid-text js-grid-text-5" style="left: 50%; visibility: hidden;">7,000</span><span class="irs-grid-pol small" style="left: 56.666666666666664%"></span><span class="irs-grid-pol small" style="left: 53.333333333333336%"></span><span class="irs-grid-pol" style="left: 60%"></span><span class="irs-grid-text js-grid-text-6" style="left: 60%; visibility: hidden;">8,200</span><span class="irs-grid-pol small" style="left: 66.66666666666667%"></span><span class="irs-grid-pol small" style="left: 63.333333333333336%"></span><span class="irs-grid-pol" style="left: 70%"></span><span class="irs-grid-text js-grid-text-7" style="left: 70%; visibility: hidden;">9,400</span><span class="irs-grid-pol small" style="left: 76.66666666666667%"></span><span class="irs-grid-pol small" style="left: 73.33333333333333%"></span><span class="irs-grid-pol" style="left: 80%"></span><span class="irs-grid-text js-grid-text-8" style="left: 80%">10,600</span><span class="irs-grid-pol small" style="left: 86.66666666666667%"></span><span class="irs-grid-pol small" style="left: 83.33333333333333%"></span><span class="irs-grid-pol" style="left: 90%"></span><span class="irs-grid-text js-grid-text-9" style="left: 90%; visibility: hidden;">11,800</span><span class="irs-grid-pol small" style="left: 96.66666666666667%"></span><span class="irs-grid-pol small" style="left: 93.33333333333333%"></span><span class="irs-grid-pol" style="left: 100%"></span><span class="irs-grid-text js-grid-text-10" style="left: 100%; visibility: hidden;">13,000</span></span><span class="irs-bar"></span><span class="irs-bar-edge"></span><span class="irs-shadow shadow-single"></span><span class="irs-slider single"></span></span><input class="js-range-slider irs-hidden-input shiny-bound-input" id="sliderarea" data-min="1000" data-max="13000" data-from="5000" data-step="1" data-grid="true" data-grid-num="10" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-keyboard-step="0.00833333333333333" data-data-type="number" readonly="readonly" value="5000">
+          </div>
+          <div class="form-group shiny-input-container">
+            <label class="control-label" for="sliderperimeter">What is the total perimeter of the pores (in pixels)?</label>
+            <span class="irs js-irs-1 irs-with-grid"><span class="irs"><span class="irs-line" tabindex="-1"><span class="irs-line-left"></span><span class="irs-line-mid"></span><span class="irs-line-right"></span></span><span class="irs-min">0</span><span class="irs-max">5,000</span><span class="irs-from" style="visibility: hidden;">0</span><span class="irs-to" style="visibility: hidden;">0</span><span class="irs-single">0</span></span><span class="irs-grid"><span class="irs-grid-pol" style="left: 0%"></span><span class="irs-grid-text js-grid-text-0" style="left: 0%">0</span><span class="irs-grid-pol small" style="left: 6.666666666666666%"></span><span class="irs-grid-pol small" style="left: 3.333333333333333%"></span><span class="irs-grid-pol" style="left: 10%"></span><span class="irs-grid-text js-grid-text-1" style="left: 10%; visibility: hidden;">500</span><span class="irs-grid-pol small" style="left: 16.666666666666668%"></span><span class="irs-grid-pol small" style="left: 13.333333333333332%"></span><span class="irs-grid-pol" style="left: 20%"></span><span class="irs-grid-text js-grid-text-2" style="left: 20%; visibility: hidden;">1,000</span><span class="irs-grid-pol small" style="left: 26.666666666666668%"></span><span class="irs-grid-pol small" style="left: 23.333333333333332%"></span><span class="irs-grid-pol" style="left: 30%"></span><span class="irs-grid-text js-grid-text-3" style="left: 30%; visibility: hidden;">1,500</span><span class="irs-grid-pol small" style="left: 36.666666666666664%"></span><span class="irs-grid-pol small" style="left: 33.333333333333336%"></span><span class="irs-grid-pol" style="left: 40%"></span><span class="irs-grid-text js-grid-text-4" style="left: 40%">2,000</span><span class="irs-grid-pol small" style="left: 46.666666666666664%"></span><span class="irs-grid-pol small" style="left: 43.333333333333336%"></span><span class="irs-grid-pol" style="left: 50%"></span><span class="irs-grid-text js-grid-text-5" style="left: 50%; visibility: hidden;">2,500</span><span class="irs-grid-pol small" style="left: 56.666666666666664%"></span><span class="irs-grid-pol small" style="left: 53.333333333333336%"></span><span class="irs-grid-pol" style="left: 60%"></span><span class="irs-grid-text js-grid-text-6" style="left: 60%; visibility: hidden;">3,000</span><span class="irs-grid-pol small" style="left: 66.66666666666667%"></span><span class="irs-grid-pol small" style="left: 63.333333333333336%"></span><span class="irs-grid-pol" style="left: 70%"></span><span class="irs-grid-text js-grid-text-7" style="left: 70%; visibility: hidden;">3,500</span><span class="irs-grid-pol small" style="left: 76.66666666666667%"></span><span class="irs-grid-pol small" style="left: 73.33333333333333%"></span><span class="irs-grid-pol" style="left: 80%"></span><span class="irs-grid-text js-grid-text-8" style="left: 80%">4,000</span><span class="irs-grid-pol small" style="left: 86.66666666666667%"></span><span class="irs-grid-pol small" style="left: 83.33333333333333%"></span><span class="irs-grid-pol" style="left: 90%"></span><span class="irs-grid-text js-grid-text-9" style="left: 90%; visibility: hidden;">4,500</span><span class="irs-grid-pol small" style="left: 96.66666666666667%"></span><span class="irs-grid-pol small" style="left: 93.33333333333333%"></span><span class="irs-grid-pol" style="left: 100%"></span><span class="irs-grid-text js-grid-text-10" style="left: 100%; visibility: hidden;">5,000</span></span><span class="irs-bar"></span><span class="irs-bar-edge"></span><span class="irs-shadow shadow-single"></span><span class="irs-slider single"></span></span><input class="js-range-slider irs-hidden-input shiny-bound-input" id="sliderperimeter" data-min="0" data-max="5000" data-from="3000" data-step="1" data-grid="true" data-grid-num="10" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-keyboard-step="0.02" data-data-type="number" readonly="readonly" value="3000">
+          </div>
+          <div class="form-group shiny-input-container">
+            <div class="checkbox">
+              <label>
+                <input id="showModel1" checked="checked" class="shiny-bound-input" type="checkbox">
+                <span>Show/Hide Model 1</span>
+              </label>
+            </div>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-8">
+        <div id="plot1" class="shiny-plot-output shiny-bound-output" style="width: 100% ; height: 400px"></div>
+        <h3>Predicted Permeability from Model 1 (Area as Predictor):</h3>
+        <div id="pred1" class="shiny-text-output shiny-bound-output"></div>
+        <h3>Predicted Permeability from Model 2:(Perimeter as Predictor)</h3>
+        <div id="pred2" class="shiny-text-output shiny-bound-output"></div>
+      </div>
+    </div>
+  </div>
+
+
+
+<div id="ss-connect-dialog" style="display: none;"></div><div id="ss-overlay" class="ss-gray-out" style="display: none;"></div></body></html>
